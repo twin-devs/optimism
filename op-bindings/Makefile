@@ -29,7 +29,8 @@ bindings: l1block-bindings \
 	optimism-mintable-erc721-factory-bindings \
 	l1-fee-vault-bindings \
 	basefee-vault-bindings \
-	legacy-erc20-eth-bindings
+	legacy-erc20-eth-bindings \
+	sequencer-selector-bindings
 
 version:
 	forge --version
@@ -38,6 +39,9 @@ compile:
 	cd ../packages/contracts-bedrock/ && \
 		yarn clean && \
 		npx hardhat compile
+
+sequencer-selector-bindings: compile
+	./gen_bindings.sh contracts/L1/SequencerSelector.sol:SequencerSelector $(pkg)
 
 system-config-bindings: compile
 	./gen_bindings.sh contracts/L1/SystemConfig.sol:SystemConfig $(pkg)
