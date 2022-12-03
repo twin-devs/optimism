@@ -47,19 +47,10 @@ contract SequencerSelector is Initializable {
     // second (1) > 6
     // last (15) > 20
     // GetSequencer returns the pubkey of the current sequencer for the given epoch using round-robin strategy.
-    function GetSequencer(uint256 blockNumber) public returns (string memory) {
+    function GetSequencer(uint256 blockNumber) public view returns (uint256) {
         uint256 offset = blockNumber - startingBlockNumber;
-        uint index = offset % SEQUENCER_COUNT;
-
-        string memory current_sequencer_pubkey = sequencers[index];
-        string memory next_sequencer_pubkey = sequencers[(index+1)%SEQUENCER_COUNT];
-        emit SequencerChanged(
-            blockNumber,
-            current_sequencer_pubkey,
-            next_sequencer_pubkey
-        );
-
-        return current_sequencer_pubkey;
+        uint256 index = offset % SEQUENCER_COUNT;
+        return index;
     }
 
     // TODO: We currently don't allow new sequencers into the set.

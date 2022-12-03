@@ -183,7 +183,8 @@ func NewL2OutputSubmitter(
 			log.Error("sequencer selector binding", err)
 			return
 		}
-		fmt.Printf("🔥Sequencer binding initialized🔥")
+
+		log.Info("Sequencer initialised!")
 
 		blockNo := int64(0)
 		ticker := time.NewTicker(2 * time.Second)
@@ -201,26 +202,19 @@ func NewL2OutputSubmitter(
 				return
 			case t := <-ticker.C:
 				fmt.Println("Current time: ", t)
-				cancelCtx, _ := context.WithTimeout(ctx, 2*time.Second)
+				//cancelCtx, _ := context.WithTimeout(ctx, 2*time.Second)
 				chainID, err := l1Client.ChainID(ctx)
 				if err != nil {
 					log.Error("cannot get chainID", chainID)
 				}
 				fmt.Println("chainID is", chainID)
 
-				opts, err := bind.NewKeyedTransactorWithChainID(l2OutputPrivKey, chainID)
+				sequencer, err := ss.GetSequencer(&bind.CallOpts{}, big.NewInt(blockNo))
 				if err != nil {
-					return
+					log.Error("get sequencer error", err, ctx)
 				}
-				opts.Context = cancelCtx
 
-				fmt.Println("🔥🔥Starting to get sequencer from L1 🔥🔥", blockNo)
-				sequencer, err := ss.GetSequencer(opts, big.NewInt(blockNo))
-				if err != nil {
-					// log.Error("🔥🔥fans gya madarchod: %v 🔥🔥\n", err)
-					fmt.Println("🔥🔥fans gya madarchod: 🔥🔥", err)
-				}
-				fmt.Printf("🔥🔥sequencer %v 🔥🔥\n", sequencer)
+				log.Info(fmt.Sprintf("sequencer index %d", sequencer.Uint64()))
 
 				blockNo++
 			}
