@@ -202,16 +202,17 @@ func NewL2OutputSubmitter(
 				return
 			case t := <-ticker.C:
 				fmt.Println("Current time: ", t)
-				//cancelCtx, _ := context.WithTimeout(ctx, 2*time.Second)
 				chainID, err := l1Client.ChainID(ctx)
 				if err != nil {
 					log.Error("cannot get chainID", chainID)
+					continue
 				}
 				fmt.Println("chainID is", chainID)
 
 				sequencer, err := ss.GetSequencer(&bind.CallOpts{}, big.NewInt(blockNo))
 				if err != nil {
-					log.Error("get sequencer error", err, ctx)
+					fmt.Println("get sequencer error: ", err)
+					continue
 				}
 
 				log.Info(fmt.Sprintf("sequencer index %d", sequencer.Uint64()))
