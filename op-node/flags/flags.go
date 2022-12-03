@@ -31,6 +31,11 @@ var (
 		Usage:  "Address of L2 Engine JSON-RPC endpoints to use (engine and eth namespace required)",
 		EnvVar: prefixEnvVar("L2_ENGINE_RPC"),
 	}
+	SequencerID = cli.StringFlag{
+		Name:   "sequencerid",
+		Usage:  "Unique ID of the sequencer",
+		EnvVar: prefixEnvVar("SEQUENCER_ID"),
+	}
 	RollupConfig = cli.StringFlag{
 		Name:   "rollup.config",
 		Usage:  "Rollup chain parameters",
@@ -173,6 +178,7 @@ var (
 
 var requiredFlags = []cli.Flag{
 	L1NodeAddr,
+	SequencerID,
 	L2EngineAddr,
 	RPCListenAddr,
 	RPCListenPort,

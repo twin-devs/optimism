@@ -13,4 +13,7 @@ type Config struct {
 
 	// SequencerEnabled is true when the driver should sequence new blocks.
 	SequencerEnabled bool `json:"sequencer_enabled"`
+
+	// SequencerID is the unique ID of the sequencer.
+	SequencerID uint64 `json:"sequencer_id"`
 }
