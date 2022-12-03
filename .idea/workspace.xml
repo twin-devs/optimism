@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ec424b39-f79f-47fc-b48e-cac10da634db" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch-submitter/config_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/batch-submitter/config_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch-submitter/drivers/sequencer/batch_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/batch-submitter/drivers/sequencer/batch_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch-submitter/drivers/sequencer/encoding_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/batch-submitter/drivers/sequencer/encoding_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch-submitter/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/batch-submitter/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/op-bindings/bindings/sequencerselector.go" beforeDir="false" afterPath="$PROJECT_DIR$/op-bindings/bindings/sequencerselector.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/op-bindings/predeploys/dev_addresses.go" beforeDir="false" afterPath="$PROJECT_DIR$/op-bindings/predeploys/dev_addresses.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/op-chain-ops/genesis/layer_one.go" beforeDir="false" afterPath="$PROJECT_DIR$/op-chain-ops/genesis/layer_one.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/op-proposer/l2_output_submitter.go" beforeDir="false" afterPath="$PROJECT_DIR$/op-proposer/l2_output_submitter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/op-proposer/txmgr/send_state_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/op-proposer/txmgr/send_state_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/op-proposer/txmgr/txmgr_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/op-proposer/txmgr/txmgr_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ops/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ops/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/contracts-bedrock/contracts/L1/SequencerSelector.sol" beforeDir="false" afterPath="$PROJECT_DIR$/packages/contracts-bedrock/contracts/L1/SequencerSelector.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/contracts-bedrock/hardhat.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/contracts-bedrock/hardhat.config.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/go/go1.19.3" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="zxgbg55r" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IOO3BQWsV9x7b8UmQfAIEPrF3w" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.vendoring.notification.had.been.shown": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/xenowits",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

@@ -8,9 +8,11 @@ import '@nomiclabs/hardhat-ethers'
 import 'hardhat-deploy'
 
 // Hardhat tasks
+// @ts-ignore
 import './tasks'
 
 // Deploy configuration
+// @ts-ignore
 import { deployConfigSpec } from './src/deploy-config'
 
 let bytecodeHash = 'none'

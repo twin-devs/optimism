@@ -62,7 +62,7 @@ Refer to the Directory Structure section below to understand which packages are 
 │   ├── <a href="./packages/message-relayer">message-relayer</a>: Tool for automatically relaying L1<>L2 messages in development
 │   ├── <a href="./packages/replica-healthcheck">replica-healthcheck</a>: Service for monitoring the health of a replica node
 │   └── <a href="./packages/sdk">sdk</a>: provides a set of tools for interacting with Optimism
-├── <a href="./batch-submitter">batch-submitter</a>: Service for submitting batches of transactions and results to L1
+├── <a href="batch-submitter">batch-submitter</a>: Service for submitting batches of transactions and results to L1
 ├── <a href="./bss-core">bss-core</a>: Core batch-submitter logic and utilities
 ├── <a href="./gas-oracle">gas-oracle</a>: Service for updating L1 gas prices on L2
 ├── <a href="./indexer">indexer</a>: indexes and syncs transactions
@@ -81,7 +81,7 @@ Refer to the Directory Structure section below to understand which packages are 
 ├── <a href="./op-batcher">op-batcher</a>: L2-Batch Submitter, submits bundles of batches to L1
 ├── <a href="./op-e2e">op-e2e</a>: End-to-End testing of all bedrock components in Go
 ├── <a href="./op-node">op-node</a>: rollup consensus-layer client.
-├── <a href="./op-proposer">op-proposer</a>: L2-Output Submitter, submits proposals to L1
+├── <a href="op-proposer">op-proposer</a>: L2-Output Submitter, submits proposals to L1
 ├── <a href="./ops-bedrock">ops-bedrock</a>: Bedrock devnet work
 └── <a href="./specs">specs</a>: Specs of the rollup starting at the Bedrock upgrade
 </pre>

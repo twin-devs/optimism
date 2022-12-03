@@ -253,7 +253,7 @@ services:
       - l2geth
     build:
       context: ..
-      dockerfile: ./batch-submitter/Dockerfile
+      dockerfile: ../op-sequencer/batch-submitter/Dockerfile
     image: ethereumoptimism/batch-submitter-service:${DOCKER_TAG_BATCH_SUBMITTER_SERVICE:-latest}
     entrypoint: ./batch-submitter.sh
     env_file:

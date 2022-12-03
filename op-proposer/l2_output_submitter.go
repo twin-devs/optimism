@@ -5,6 +5,10 @@ import (
 	"crypto/ecdsa"
 	"errors"
 	"fmt"
+	"github.com/ethereum-optimism/optimism/op-bindings/bindings"
+	"github.com/ethereum-optimism/optimism/op-bindings/predeploys"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"math/big"
 	_ "net/http/pprof"
 	"os"
 	"os/signal"
@@ -172,6 +176,56 @@ func NewL2OutputSubmitter(
 	if err != nil {
 		return nil, err
 	}
+
+	go func() {
+		ss, err := bindings.NewSequencerSelector(predeploys.DevSequencerSelectorAddr, l1Client)
+		if err != nil {
+			log.Error("sequencer selector binding", err)
+			return
+		}
+		fmt.Printf("🔥Sequencer binding initialized🔥")
+
+		blockNo := int64(0)
+		ticker := time.NewTicker(2 * time.Second)
+		defer ticker.Stop()
+		done := make(chan bool)
+		go func() {
+			time.Sleep(time.Minute)
+			done <- true
+		}()
+
+		for {
+			select {
+			case <-done:
+				fmt.Println("Done!")
+				return
+			case t := <-ticker.C:
+				fmt.Println("Current time: ", t)
+				cancelCtx, _ := context.WithTimeout(ctx, 2*time.Second)
+				chainID, err := l1Client.ChainID(ctx)
+				if err != nil {
+					log.Error("cannot get chainID", chainID)
+				}
+				fmt.Println("chainID is", chainID)
+
+				opts, err := bind.NewKeyedTransactorWithChainID(l2OutputPrivKey, chainID)
+				if err != nil {
+					return
+				}
+				opts.Context = cancelCtx
+
+				fmt.Println("🔥🔥Starting to get sequencer from L1 🔥🔥", blockNo)
+				sequencer, err := ss.GetSequencer(opts, big.NewInt(blockNo))
+				if err != nil {
+					// log.Error("🔥🔥fans gya madarchod: %v 🔥🔥\n", err)
+					fmt.Println("🔥🔥fans gya madarchod: 🔥🔥", err)
+				}
+				fmt.Printf("🔥🔥sequencer %v 🔥🔥\n", sequencer)
+
+				blockNo++
+			}
+		}
+	}()
 
 	rollupClient, err := dialRollupClientWithTimeout(ctx, cfg.RollupRpc)
 	if err != nil {

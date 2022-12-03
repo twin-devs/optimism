@@ -2,9 +2,9 @@ package batchsubmitter_test
 
 import (
 	"fmt"
+	"github.com/ethereum-optimism/optimism/batch-submitter"
 	"testing"
 
-	batchsubmitter "github.com/ethereum-optimism/optimism/batch-submitter"
 	"github.com/stretchr/testify/require"
 )
 
