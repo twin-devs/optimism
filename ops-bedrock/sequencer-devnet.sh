@@ -85,34 +85,44 @@ fi
 (
   cd ops-bedrock
   echo "Bringing up L1..."
-  DOCKER_BUILDKIT=1 docker-compose build --progress plain
-  docker-compose up -d l1
+  DOCKER_BUILDKIT=1 docker-compose --file docker-compose-sequencer-L1.yml build --progress plain
+  docker-compose --file docker-compose-sequencer-L1.yml up -d
   wait_up $L1_URL
 )
 
+# This is how the directory structure would look like:
 #.devnet/
 #   node0/
 #   node1/
 #   node2/
 #   node3/
 
+# Bring up L2.
+(
+  cd ops-bedrock
+  echo "Bringing up L2..."
+  DOCKER_BUILDKIT=1 docker-compose --file dc-sequencer0-L2.yml build --progress plain
+  docker-compose --file dc-sequencer0-L2.yml up -d l2-0 op-node-0 op-proposer-0 op-batcher-0
+  wait_up $L2_URL_NODE0
+)
+
 # Bring up L2s.
 (
   cd ops-bedrock
-  echo "Bringing up L2 node0..."
-  docker-compose up -d l2_node0
+  echo "Bringing up L2 sequencer0..."
+  docker-compose up -d l2-0
   wait_up $L2_URL_NODE0
 
-  echo "Bringing up L2 node1..."
-  docker-compose up -d l2_node1
+  echo "Bringing up L2 sequencer1..."
+  docker-compose up -d l2-1
   wait_up $L2_URL_NODE1
 
-  echo "Bringing up L2 node2..."
-  docker-compose up -d l2_node2
+  echo "Bringing up L2 sequencer2..."
+  docker-compose up -d l2-2
   wait_up $L2_URL_NODE2
 
-  echo "Bringing up L2 node3..."
-  docker-compose up -d l2_node3
+  echo "Bringing up L2 sequencer3..."
+  docker-compose up -d l2-3
   wait_up $L2_URL_NODE3
 )
 
