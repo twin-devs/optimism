@@ -29,6 +29,7 @@ var proxies = []string{
 	"L1StandardBridgeProxy",
 	"OptimismPortalProxy",
 	"OptimismMintableERC20FactoryProxy",
+	"SequencerSelectorProxy",
 }
 
 var portalMeteringSlot = common.Hash{31: 0x01}
@@ -113,6 +114,28 @@ func BuildL1DeveloperGenesis(config *DeployConfig) (*core.Genesis, error) {
 		opts,
 		depsByName["L2OutputOracleProxy"].Address,
 		depsByName["L2OutputOracle"].Address,
+		data,
+	); err != nil {
+		return nil, err
+	}
+
+	// Sequencer Selector
+	ssABI, err := bindings.SequencerSelectorMetaData.GetAbi()
+	if err != nil {
+		return nil, err
+	}
+	data, err = ssABI.Pack(
+		"initialize",
+		big.NewInt(0),
+	)
+	if err != nil {
+		return nil, err
+	}
+	if _, err := upgradeProxy(
+		backend,
+		opts,
+		depsByName["SequencerSelectorProxy"].Address,
+		depsByName["SequencerSelector"].Address,
 		data,
 	); err != nil {
 		return nil, err
@@ -282,6 +305,12 @@ func deployL1Contracts(config *DeployConfig, backend *backends.SimulatedBackend)
 			},
 		},
 		{
+			Name: "SequencerSelector",
+			Args: []interface{}{
+				big.NewInt(0),
+			},
+		},
+		{
 			Name: "OptimismPortal",
 			Args: []interface{}{
 				uint642Big(config.FinalizationPeriodSeconds),
@@ -346,6 +375,12 @@ func l1Deployer(backend *backends.SimulatedBackend, opts *bind.TransactOpts, dep
 			opts,
 			backend,
 			predeploys.DevL2OutputOracleAddr,
+			deployment.Args[0].(*big.Int),
+		)
+	case "SequencerSelector":
+		_, tx, _, err = bindings.DeploySequencerSelector(
+			opts,
+			backend,
 			deployment.Args[0].(*big.Int),
 		)
 	case "L1CrossDomainMessenger":

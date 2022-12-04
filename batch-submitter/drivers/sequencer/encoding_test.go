@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"encoding/hex"
 	"encoding/json"
+	"github.com/ethereum-optimism/optimism/batch-submitter/drivers/sequencer"
 	"os"
 	"testing"
 
-	"github.com/ethereum-optimism/optimism/batch-submitter/drivers/sequencer"
 	l2types "github.com/ethereum-optimism/optimism/l2geth/core/types"
 	l2rlp "github.com/ethereum-optimism/optimism/l2geth/rlp"
 	"github.com/stretchr/testify/require"

@@ -1,10 +1,10 @@
 package sequencer_test
 
 import (
+	"github.com/ethereum-optimism/optimism/batch-submitter/drivers/sequencer"
 	"math/big"
 	"testing"
 
-	"github.com/ethereum-optimism/optimism/batch-submitter/drivers/sequencer"
 	l2common "github.com/ethereum-optimism/optimism/l2geth/common"
 	l2types "github.com/ethereum-optimism/optimism/l2geth/core/types"
 	"github.com/stretchr/testify/require"
